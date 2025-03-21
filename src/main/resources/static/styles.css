@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+.custom-button {
+  background-color: #004963;
+  color: white;
+  border-radius: 10px;
+  width: 100px;
+  border: 1px solid #004963;
+}
+
+.linknondecorato {
+  color: #004963;
+}
+
+main {
+  font-family: "Quicksand", sans-serif;
+}
+
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f8ff;
+  flex-direction: column;
+}
+
+.dashboard {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #f0f8ff;
+  flex-direction: column;
+}
+.myrow {
+  width: 100%;
+}
+
+.stato {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-input {
+  border-radius: 10px;
+  border: 1px solid #004963;
+}
+
+.custom-table-input {
+  border-radius: 10px;
+  border: 1px solid #004963;
+  max-width: 150px;
+  height: 30px;
+}
+
+.crea {
+  font-size: 14px;
+}
+
+.accettazione-button {
+  background-color: #004963;
+  color: white;
+  border-radius: 10px;
+  width: 350px;
+  border: 1px solid #004963;
+}
+
+.pricelist-button {
+  background-color: #004963;
+  color: white;
+  border-radius: 10px;
+  width: 200px;
+  border: 1px solid #004963;
+}
+
+.add-button {
+  background-color: #004963;
+  color: white;
+  border-radius: 10px;
+  width: 30px;
+  border: 1px solid #004963;
+}
+
+.second-button {
+  background-color: #00b4d8;
+  color: white;
+  border-radius: 10px;
+  width: 350px;
+  border: 1px solid #004963;
+}
+
+th {
+  background-color: #004963 !important;
+  border: 1px solid white;
+  width: 170px;
+  font-weight: 400;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+}
+
+td {
+  border: 1px solid #004963;
+  width: 170px;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+.price-list {
+  background: #00b4d857;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid #004963;
+  font-family: "Georgia", serif;
+  line-height: 1.6;
+  text-align: left;
+  width: 200px;
+  margin: 20px auto;
+}

@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "50daab0a-6bb2-4bc3-ab8c-667983ed313c",
+		"name": "WSDA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34138800",
+		"_collection_link": "https://wsda44.postman.co/workspace/wsda-Workspace~2cc2096d-b6bc-4549-b700-937d45ed0a9f/collection/34138800-50daab0a-6bb2-4bc3-ab8c-667983ed313c?action=share&source=collection_link&creator=34138800"
+	},
+	"item": [
+		{
+			"name": "SIGN UP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"cassierafirstlove\",\r\n  \"email\": \"cash@example.com\",\r\n  \"password\": \"123456ciao\",\r\n  \"ruolo\": \"CASSIERE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"cash@example.com\",\r\n  \"password\": \"123456ciao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "INTERVENTO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgyNDQxMzMsImV4cCI6MTczODg0ODkzMywic3ViIjoiMSJ9.gk0PN1zzNKYWeXF-UQiEqXxVBWqbwMBb3GflT2mQMd4NR767vfg83RQAeH4xbnsdukdDebRrjliEeSD4apQrwQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codiceServizio\": \"SERV123456\",\r\n  \"veicoloId\": \"BE642SC\",\r\n  \"lavorazioniEffettuate\": \"niente\",\r\n  \"stato\": \"IN_LAVORAZIONE\",\r\n  \"costoManodopera\": 120.50,\r\n  \"ricambi\": \"niente\",\r\n  \"totale\": 180.75,\r\n  \"oreLavorate\": 2.5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/interventi"
+			},
+			"response": []
+		},
+		{
+			"name": "CLIENTE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgyNDQxMzMsImV4cCI6MTczODg0ODkzMywic3ViIjoiMSJ9.gk0PN1zzNKYWeXF-UQiEqXxVBWqbwMBb3GflT2mQMd4NR767vfg83RQAeH4xbnsdukdDebRrjliEeSD4apQrwQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Peach\",\r\n  \"cognome\": \"Bros\",\r\n  \"indirizzo\": \"Via Roma, 10 - Milano\",\r\n  \"telefono\": \"+39 345 678 9012\",\r\n  \"email\": \"peachbros@example.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/clienti"
+			},
+			"response": []
+		},
+		{
+			"name": "VEICOLO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgyNDQxMzMsImV4cCI6MTczODg0ODkzMywic3ViIjoiMSJ9.gk0PN1zzNKYWeXF-UQiEqXxVBWqbwMBb3GflT2mQMd4NR767vfg83RQAeH4xbnsdukdDebRrjliEeSD4apQrwQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"targa\": \"BE642SC\",\r\n  \"marca\": \"Fiat\",\r\n  \"modello\": \"Panda\",\r\n  \"anno\": 1999,\r\n  \"clienteId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/veicoli"
+			},
+			"response": []
+		},
+		{
+			"name": "stato riparazione",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codiceServizio\": \"SERV12345\",\r\n    \"targa\": \"AB123CD\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/public/intervento/stato"
+			},
+			"response": []
+		},
+		{
+			"name": "Clienti",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgyNjEwMTMsImV4cCI6MTczODg2NTgxMywic3ViIjoiMiJ9.6d5jrxa-oyY2s_qLa1aWshkO6D-M3lHD8jP2K5C-nhhpmQk-_Dmz6ksYf32NsV-awwdS_zXQ5h-zZchj-rWBng"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/clienti"
+			},
+			"response": []
+		},
+		{
+			"name": "Veicoli",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgzMzgwMzcsImV4cCI6MTczODk0MjgzNywic3ViIjoiMiJ9.fhY-aBTlW_vQpKxO3qRMk5VLOLecr0aK_NzjOpW6_9Fcd1HneCG1ma0skB0c88XCJFgydXnXjS1-OI9wOgczKA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/veicoli"
+			},
+			"response": []
+		},
+		{
+			"name": "Interventi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgzMzMxNTAsImV4cCI6MTczODkzNzk1MCwic3ViIjoiMyJ9.AgJUfs9eDO6hoP4H-plStJbsmntrhfTn55QpoqBDwUPbpFj_OFUhrpL7giVaF5rVfGa9AMaoG_AYnzH7_AFekQ"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/interventi"
+			},
+			"response": []
+		},
+		{
+			"name": "aggiorna intervento meccanico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgzMzg1MzksImV4cCI6MTczODk0MzMzOSwic3ViIjoiNSJ9.iMozSkJjnHkViMF4CULvBLKjgKjar08x4P6FormuqQ-CSiQB4ktG2f1-mjgiYTw-wy1LWV_3wfLRgBvf_eTJgQ"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codiceServizio\": \"SERV123456\",\r\n  \"veicoloId\": \"BE642SC\",\r\n  \"lavorazioniEffettuate\": \"niente\",\r\n  \"stato\": \"PAGATO\",\r\n  \"costoManodopera\": 120.50,\r\n  \"ricambi\": \"friedchips\",\r\n  \"totale\": 180.75,\r\n  \"oreLavorate\": 2.5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/interventi/SRV-1738332679263"
+			},
+			"response": []
+		},
+		{
+			"name": "interventi per magazziniere/cassiere",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MzgzMzg1MzksImV4cCI6MTczODk0MzMzOSwic3ViIjoiNSJ9.iMozSkJjnHkViMF4CULvBLKjgKjar08x4P6FormuqQ-CSiQB4ktG2f1-mjgiYTw-wy1LWV_3wfLRgBvf_eTJgQ"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/interventi"
+			},
+			"response": []
+		}
+	]
+}
