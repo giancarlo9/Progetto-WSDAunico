@@ -16,29 +16,27 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Utente implements UserDetails {
-    @Setter
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String email;
     private String password;
-    @Enumerated(EnumType.STRING) //se no l'enum di traduce in un numero nel db
-    private Ruolo ruolo;
 
+    @Enumerated(EnumType.STRING)
+    private Ruolo ruolo; // Ruolo dell'utente, come in precedenza
 
+    // Il costruttore non include authorities perché le authorities sono gestite dal metodo getAuthorities
     public Utente(String username, String email, String password, Ruolo ruolo) {
         this.username = username;
         this.email = email;
-        this.password=password;
-        this.ruolo= ruolo;
+        this.password = password;
+        this.ruolo = ruolo;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Questo metodo deve ritornare la lista dei ruoli (SimpleGrantedAuthority) dell'utente
+        // Restituisce i ruoli come GrantedAuthority
         return List.of(new SimpleGrantedAuthority(this.ruolo.name()));
     }
 
@@ -62,4 +60,8 @@ public class Utente implements UserDetails {
         return true;
     }
 
+    public Utente(String username2, String password2, Collection<? extends GrantedAuthority> authorities,
+            Utente utente) {
+        //TODO Auto-generated constructor stub
+    }
 }

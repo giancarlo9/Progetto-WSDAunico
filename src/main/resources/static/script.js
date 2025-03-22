@@ -15,34 +15,24 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const formData = new URLSearchParams();
-    formData.append("username", email);
-    formData.append("password", password);
-
     try {
-      const response = await fetch("http://localhost:3001/login", {
+      const response = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formData,
-        credentials: "include", // Fondamentale per la sessione
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
-      if (response.ok) {
-        // Dopo il login, richiediamo i dati dell'utente
-        const userResponse = await fetch("http://localhost:3001/user", {
-          credentials: "include",
-        });
+      const data = await response.json();
 
-        if (userResponse.ok) {
-          const userData = await userResponse.json();
-          redirectUserByRole(userData.role);
-        } else {
-          showError("Errore nel recupero delle informazioni utente.");
-        }
+      if (response.ok) {
+       
+        localStorage.setItem("authToken", data.accessToken); // Salvo il token
+        localStorage.setItem("userRole", data.role); // Salvo il ruolo
+        
+       
+        redirectUserByRole(); // Redirect in base al ruolo
       } else {
-        showError("Credenziali non valide.");
+        showError(data.message || "Credenziali non valide.");
       }
     } catch (error) {
       console.error("Errore durante il login:", error);
@@ -50,12 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Funzione per mostrare il messaggio di errore
   function showError(message) {
     errorMessage.textContent = message;
     errorMessage.classList.add("alert", "alert-danger");
   }
 
-  function redirectUserByRole(role) {
+  // Funzione per reindirizzare l'utente in base al ruolo
+  function redirectUserByRole() {
+    const role = localStorage.getItem("userRole");
+
     if (role === "MECCANICO") {
       window.location.href = "/meccanico-dashboard.html";
     } else if (role === "MAGAZZINIERE") {
@@ -69,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("stateForm");
